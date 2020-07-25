@@ -1,0 +1,11 @@
+[package]
+name = "nopl"
+version = "0.1.0"
+authors = ["Alexandre Lavoie <alexandre.lavoie00@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+minifier = ">=0.0.36"
+colored = ">=2.0.0"
+notify = "4.0.15"
+base64 = "0.12.3"

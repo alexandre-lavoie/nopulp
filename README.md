@@ -1,2 +1,2 @@
-# sitemask
-Lightweight "script-less" websites
+# nopulp
+Lightweight, fast, and secure websites 🍊
