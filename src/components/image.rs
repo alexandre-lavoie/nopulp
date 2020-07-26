@@ -1,16 +1,6 @@
 use crate::app::App;
 use crate::core::*;
 
-/// TODO: Should be used to embed content like images into pages.
-/// 
-/// TODO: Should be moved to a `macros` package.
-#[macro_export]
-macro_rules! embed {
-    ($file:literal) => {
-        include_bytes!($file);
-    };
-}
-
 pub struct Image(pub Object<String>);
 
 impl Child for Image {}

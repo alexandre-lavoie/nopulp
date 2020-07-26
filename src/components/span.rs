@@ -1,17 +1,17 @@
 use crate::app::App;
 use crate::core::*;
 
-pub struct Text(pub Object<String>);
+pub struct Span(pub Object<String>);
 
-impl Child for Text {}
+impl Child for Span {}
 
-impl Clickable for Text {
+impl Clickable for Span {
     fn on_click(&mut self, app: &mut App) {
         self.0.on_click(app);
     }
 }
 
-impl Renderable for Text {
+impl Renderable for Span {
     fn render(&self, app: &App) {
         let context = app.get_context();
 
@@ -23,7 +23,7 @@ impl Renderable for Text {
                 self.0.style.left,
                 self.0.style.top,
             )
-            .expectnopl("Should be able to fill text.");
+            .expectnopl("Should be able to fill span.");
 
         context.stroke();
 

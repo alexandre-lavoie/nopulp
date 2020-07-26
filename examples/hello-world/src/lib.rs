@@ -1,3 +1,7 @@
+#[macro_use]
+extern crate nopulp_html;
+
+#[macro_use]
 extern crate nopulp;
 
 use nopulp::*;
@@ -7,9 +11,9 @@ use pages::*;
 
 pub struct MyApp;
 
-impl nopulp::Routeable for MyApp {
-    router! {
-        _ => index;
+router! {
+    MyApp => {
+        _ => html_page;
     }
 }
 

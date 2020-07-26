@@ -14,4 +14,8 @@ pub mod components;
 pub use components::*;
 pub mod app;
 pub use app::*;
-pub mod languages;
+pub mod macros;
+pub use crate::macros::*;
+
+#[macro_use]
+pub use nopulp_html;

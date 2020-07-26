@@ -1,3 +1,5 @@
+/// DEPRECATED
+/// 
 /// Transforms a pseudo-HTML structure into Rust structs.
 /// 
 /// Following is an example use:

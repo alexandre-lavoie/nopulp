@@ -1,0 +1,12 @@
+[package]
+name = "nopulp_html"
+version = "0.1.0"
+authors = ["Alexandre Lavoie <alexandre.lavoie00@gmail.com>"]
+edition = "2018"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+quote = "1.0"
+syn = { version = "1.0.35", features = ["full"] }

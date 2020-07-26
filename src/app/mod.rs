@@ -5,9 +5,8 @@ use std::cell::RefCell;
 use std::collections::HashMap;
 use std::rc::Rc;
 
-pub mod macros;
 mod router;
-use crate::components::page::Page;
+use crate::components::html::Html;
 use crate::core::*;
 pub use router::*;
 
@@ -118,22 +117,22 @@ impl App {
     /// Clear canvas and renders page using current application.
     ///
     /// Should not be used inside external application -> framework should handle using the [`router!`] macro.
-    pub fn render(&mut self, page: &mut Page) {
+    pub fn render(&mut self, html: &mut Html) {
         self.get_context().clear_rect(0f64, 0f64, 1920f64, 1080f64);
 
-        page.render(&self);
+        html.render(&self);
     }
 
     /// Attaches javascript listeners to application.
     ///
     /// Should not be used inside external application -> framework should handle using the [`app!`] macro.
-    pub fn attach_listeners(app: App, page: Page) {
+    pub fn attach_listeners(app: App, html: Html) {
         let app = Rc::new(RefCell::new(app));
-        let page = Rc::new(RefCell::new(page));
+        let html = Rc::new(RefCell::new(html));
 
         {
             let app = app.clone();
-            let page = page.clone();
+            let page = html.clone();
 
             let canvas = app.borrow().get_canvas();
 
@@ -157,8 +156,8 @@ impl App {
     /// Method bound to the javascript `mousedown` event.
     ///
     /// Should find a way to attach it to [`Clickable`].
-    fn on_click(&mut self, page: &mut Page) {
-        page.on_click(self);
+    fn on_click(&mut self, html: &mut Html) {
+        html.on_click(self);
     }
 }
 
