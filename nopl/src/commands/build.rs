@@ -5,6 +5,9 @@ use std::io::Write;
 use colored::Colorize;
 use minifier::js::minify;
 
+/// Builds a nopulp application.
+/// 
+/// Uses wasm-pack with additional packing.
 pub fn build() {
     println!("{}: Packing Wasm...", "[BUILD]".magenta());
 

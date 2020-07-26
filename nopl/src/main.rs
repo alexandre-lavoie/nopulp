@@ -1,3 +1,5 @@
+///! CLI for the nopulp framework.
+
 mod commands;
 
 use colored::Colorize;

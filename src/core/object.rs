@@ -1,13 +1,37 @@
-use crate::core::*;
 use crate::app::App;
+use crate::core::*;
 
-pub struct Object<T> where T: Clone {
+/// Base structure for components.
+///
+/// You can currently extend the definition with the following template:
+///
+/// ```
+/// use crate::core::*;
+/// use crate::app::App;
+///
+/// pub struct Text(pub Object<String>);
+///
+/// impl Child for Text { }
+///
+/// impl Clickable for Text { // Insert definition }
+///
+/// impl Renderable for Text { // Insert definition }
+/// ```
+///
+/// Refer to the /src/components folder for base examples.
+pub struct Object<T>
+where
+    T: Clone,
+{
     pub style: Style<T>,
     pub value: Option<T>,
-    pub children: Vec<Box<dyn Child>>
+    pub children: Vec<Box<dyn Child>>,
 }
 
-impl<T> Defaultable<Object<T>> for Object<T> where T: Clone {
+impl<T> Defaultable<Object<T>> for Object<T>
+where
+    T: Clone,
+{
     fn default() -> Object<T> {
         Object {
             style: Style::default(),
@@ -17,7 +41,10 @@ impl<T> Defaultable<Object<T>> for Object<T> where T: Clone {
     }
 }
 
-impl<T> Renderable for Object<T> where T: Clone {
+impl<T> Renderable for Object<T>
+where
+    T: Clone,
+{
     fn render(&self, app: &App) {
         for child in &self.children {
             child.render(app);
@@ -25,7 +52,10 @@ impl<T> Renderable for Object<T> where T: Clone {
     }
 }
 
-impl<T> Clickable for Object<T> where T: Clone {
+impl<T> Clickable for Object<T>
+where
+    T: Clone,
+{
     fn on_click(&mut self, app: &mut App) {
         let style: Style<T> = self.style.clone();
 

@@ -1,14 +1,14 @@
-use crate::core::*;
 use crate::app::App;
+use crate::core::*;
 
 pub struct Page(pub Object<String>);
 
-impl Child for Page { }
+impl Child for Page {}
 
 impl Defaultable<Page> for Page {
     fn default() -> Page {
         Page {
-            0: Object::default()
+            0: Object::default(),
         }
     }
 }

@@ -1,9 +1,9 @@
-use crate::core::*;
 use crate::app::App;
+use crate::core::*;
 
 pub struct Text(pub Object<String>);
 
-impl Child for Text { }
+impl Child for Text {}
 
 impl Clickable for Text {
     fn on_click(&mut self, app: &mut App) {
@@ -15,15 +15,17 @@ impl Renderable for Text {
     fn render(&self, app: &App) {
         let context = app.get_context();
 
-        context
-            .set_font(self.0.style.font);
+        context.set_font(self.0.style.font);
 
         context
-            .fill_text(self.0.value.clone().unwrap_or("".to_string()).as_str(), self.0.style.left, self.0.style.top)
-            .expectmsk("Should be able to fill text.");
+            .fill_text(
+                self.0.value.clone().unwrap_or("".to_string()).as_str(),
+                self.0.style.left,
+                self.0.style.top,
+            )
+            .expectnopl("Should be able to fill text.");
 
-        context
-            .stroke();
+        context.stroke();
 
         self.0.render(app);
     }

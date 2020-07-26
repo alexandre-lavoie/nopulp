@@ -1,3 +1,29 @@
+/// Transforms a pseudo-HTML structure into Rust structs.
+/// 
+/// Following is an example use:
+/// 
+/// ```
+/// nopl!(
+///     
+///     [
+///         (
+///             Div
+///             [
+///                 (Button {"Hello World".to_string()})
+///             ]
+///         )
+///     ]
+/// )
+/// ```
+/// 
+/// Refer to the `/examples` folder for more in-depth use.
+/// 
+/// ```
+/// // Testing: 
+/// assert_eq!(nopl!([]), Page::default());
+/// ```
+/// 
+/// TODO: Should be moved to a `macros` package. Should also look into a `html` macro definition.
 #[macro_export]
 macro_rules! nopl {
     (($tag:ident $($key:ident => $value:expr;)* {$val:expr})) => {

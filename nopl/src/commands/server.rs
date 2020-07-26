@@ -3,10 +3,11 @@ use std::io::{Read, Write};
 use std::fs::{read};
 use colored::Colorize;
 
+/// Simple single thread file server.
 pub fn server() {
     println!("{}: Started server at http://localhost:8080", "[SERVER]".yellow());
 
-    let listener = TcpListener::bind("127.0.0.1:8080").unwrap();
+    let listener = TcpListener::bind("0.0.0.0:8080").unwrap();
 
     for stream in listener.incoming() {
         let stream = stream.unwrap();
