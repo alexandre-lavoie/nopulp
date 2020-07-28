@@ -1,17 +1,17 @@
-use crate::app::App;
-use crate::core::*;
+use nopulp_core::*;
 
-pub struct Div(pub Object<String>);
+#[derive(Debug, PartialEq, Default, Clone)]
+pub struct Button(pub Object<String>);
 
-impl Child for Div {}
+impl Child for Button {}
 
-impl Clickable for Div {
+impl Clickable for Button {
     fn on_click(&mut self, app: &mut App) {
         self.0.on_click(app);
     }
 }
 
-impl Renderable for Div {
+impl Renderable for Button {
     fn render(&self, app: &App) {
         let context = app.get_context();
 

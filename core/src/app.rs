@@ -5,10 +5,7 @@ use std::cell::RefCell;
 use std::collections::HashMap;
 use std::rc::Rc;
 
-mod router;
-use crate::components::html::Html;
-use crate::core::*;
-pub use router::*;
+use crate::*;
 
 /// External app definition structure.
 ///

@@ -1,6 +1,6 @@
-use crate::app::App;
-use crate::core::*;
+use nopulp_core::*;
 
+#[derive(Debug, PartialEq, Default, Clone)]
 pub struct Span(pub Object<String>);
 
 impl Child for Span {}

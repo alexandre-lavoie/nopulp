@@ -1,21 +1,13 @@
 ///! Framework for making compiled websites.
-///! 
+///!
 ///! Nopulp is a framework create web application 100% in Rust.
-///! 
+///!
 ///! # Quick Start
 ///!
 ///! You can use `nopl` CLI to create a default package. - Still work in progress.
-///! Refer to example for syntax. 
+///! Refer to example for syntax.
 #[doc()]
 
-pub mod core;
-pub use crate::core::*;
-pub mod components;
-pub use components::*;
-pub mod app;
-pub use app::*;
-pub mod macros;
-pub use crate::macros::*;
-
-#[macro_use]
-pub use nopulp_html;
+pub use nopulp_components::*;
+pub use nopulp_core::{app, router, storage, App, Html, Object, Routeable, Style, Initializable};
+pub use nopulp_html::{html};

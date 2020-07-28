@@ -1,17 +1,9 @@
-use crate::app::App;
-use crate::core::*;
+use crate::*;
 
+#[derive(Debug, PartialEq, Default, Clone)]
 pub struct Html(pub Object<String>);
 
 impl Child for Html {}
-
-impl Defaultable<Html> for Html {
-    fn default() -> Self {
-        Html {
-            0: Object::default(),
-        }
-    }
-}
 
 impl Clickable for Html {
     fn on_click(&mut self, app: &mut App) {

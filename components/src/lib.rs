@@ -6,5 +6,3 @@ pub mod span;
 pub use span::Span;
 pub mod image;
 pub use image::Image;
-pub mod html;
-pub use html::Html;

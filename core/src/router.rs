@@ -1,3 +1,5 @@
+use crate::*;
+
 /// Application router using browser href and matcher.
 ///
 /// Expects external modules that exports the following template:
@@ -39,4 +41,12 @@ macro_rules! router {
             }
         }
     };
+}
+
+/// Trait that defines the routing properties of external application.
+pub trait Routeable {
+    /// Primary method for routing.
+    ///
+    /// Should be using the [`router!`] macro.
+    fn route(app: &mut App) -> Box<Html>;
 }

@@ -10,3 +10,5 @@ proc-macro = true
 [dependencies]
 quote = "1.0"
 syn = { version = "1.0.35", features = ["full"] }
+nopulp_core = { path="../core", version = "0.1.0" }
+nopulp_components = { path="../components", version = "0.1.0" }

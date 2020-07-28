@@ -1,5 +1,4 @@
-#[macro_use]
-extern crate quote;
+#![feature(proc_macro_diagnostic)]
 
 extern crate proc_macro;
 
@@ -82,12 +81,14 @@ impl Parse for HTMLElement {
             input.parse::<Token![>]>()?;
         }
 
+        children.reverse();
+
         Ok(
             HTMLElement {
                 tag,
                 value,
                 properties,
-                children
+                children 
             }
         )
     }
@@ -170,6 +171,13 @@ impl HTMLElement {
 #[proc_macro]
 pub fn html(input: TokenStream) -> TokenStream {
     let mut h: HTMLElement = parse_macro_input!(input as HTMLElement);
+
+    if !(h.tag.to_string().to_lowercase() == "html".to_string()) {
+        h.tag.span()
+            .unwrap()
+            .error("Page should be enclosed in Html tags.")
+            .emit();
+    }
 
     let tokens = h.to_tokens();
 

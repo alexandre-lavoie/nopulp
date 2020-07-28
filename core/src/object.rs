@@ -1,5 +1,4 @@
-use crate::app::App;
-use crate::core::*;
+use crate::*;
 
 /// Base structure for components.
 ///
@@ -19,6 +18,7 @@ use crate::core::*;
 /// ```
 ///
 /// Refer to the /src/components folder for base examples.
+#[derive(Debug, PartialEq, Clone)]
 pub struct Object<T>
 where
     T: Clone,
@@ -28,7 +28,7 @@ where
     pub children: Vec<Box<dyn Child>>,
 }
 
-impl<T> Defaultable<Object<T>> for Object<T>
+impl<T> Default for Object<T>
 where
     T: Clone,
 {

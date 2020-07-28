@@ -1,9 +1,3 @@
-#[macro_use]
-extern crate nopulp_html;
-
-#[macro_use]
-extern crate nopulp;
-
 use nopulp::*;
 
 mod pages;

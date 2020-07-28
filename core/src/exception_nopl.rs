@@ -1,4 +1,4 @@
-use crate::core::*;
+use crate::*;
 
 /// `except` extension that binds to the javascript console.
 ///
