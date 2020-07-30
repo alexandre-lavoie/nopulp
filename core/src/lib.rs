@@ -15,3 +15,4 @@ pub mod router;
 pub use router::Routeable;
 pub mod storage;
 pub mod app_macro;
+pub mod embed;

@@ -41,6 +41,7 @@ pub fn new(app: &mut App) -> Box<Html> {
                         }
                     }}
                 ></span>
+                <image left=100f64 width=10f64>{embed!("../images/cookie.png")}</image>
             </div>
         </html>
     )
